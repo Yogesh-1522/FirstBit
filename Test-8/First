@@ -1,1 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+    char userid[20], password[20];
+    char correct_userid[] = "Yogesh";   
+    char correct_password[] = "1522";  
+    int randomNumber, enteredNumber;
+
+   
+    printf("Enter User ID: ");
+    scanf("%s", userid);
+
+    printf("Enter Password: ");
+    scanf("%s", password);
+
+    // Verify userid and password
+    if(strcmp(userid, correct_userid) == 0 && strcmp(password, correct_password) == 0) {
+        // Generate 4-digit random number
+        srand(time(0));
+        randomNumber = 1000 + rand() % 9000;
+
+        printf("Enter the number shown: %d\n", randomNumber);
+        scanf("%d", &enteredNumber);
+
+        if(enteredNumber == randomNumber) {
+            printf("Login Success!\n");
+        } else {
+            printf("Verification Failed!\n");
+        }
+    } else {
+        printf("Invalid User ID or Password!\n");
+    }
+
+    return 0;
+}
 
